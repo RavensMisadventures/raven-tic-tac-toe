@@ -157,7 +157,9 @@ option{ color:#0b0c18; }
   height:var(--cell);
   border-radius:16px;
   border:2px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.05);
+  background:
+    url("assets/raven-seal.png") center / 60% no-repeat,
+    rgba(255,255,255,.05);
   cursor:pointer;
   position:relative;
   display:flex;
