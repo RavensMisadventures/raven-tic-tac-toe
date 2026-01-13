@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Raven’s Cozy Quest — Tic-Tac-Toe</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app" aria-labelledby="title">
+    <header class="top">
+      <h1 id="title">Raven’s Cozy Quest</h1>
+      <p class="sub">Help Raven find her blanket. There’s no rush ✨</p>
+    </header>
+
+    <section class="panel">
+      <div class="row">
+        <label class="pill">
+          Mode
+          <select id="mode">
+            <option value="cpu">Single Player vs Computer</option>
+            <option value="pvp">Two Players</option>
+          </select>
+        </label>
+
+        <label class="pill">
+          Difficulty
+          <select id="difficulty">
+            <option value="gentle">Gentle</option>
+            <option value="smart">Smart</option>
+          </select>
+        </label>
+
+        <button id="newGame" class="btn">Play Again</button>
+      </div>
+
+      <div class="row">
+        <div class="chooser">
+          <div class="chooserTitle">Choose your token</div>
+          <div class="tokenRow" role="group" aria-label="Token selection">
+            <button class="tokenBtn" data-token="feather" aria-pressed="true">
+              <img src="assets/feather.png" alt="Feather token" />
+              <span>Feather</span>
+            </button>
+            <button class="tokenBtn" data-token="cookie" aria-pressed="false">
+              <img src="assets/cookie.png" alt="Cookie token" />
+              <span>Cookie</span>
+            </button>
+          </div>
+          <div class="tiny" id="tokenNote">Player 1 uses the selected token. Player 2 gets the other.</div>
+        </div>
+      </div>
+
+      <div class="status" role="status" aria-live="polite">
+        <div>
+          <div id="statusLine"><strong>Welcome!</strong> Tap a square to start.</div>
+          <div id="hintLine" class="hint">Big taps. Calm play. You’ve got this.</div>
+        </div>
+        <div class="turn" id="turnPill">Turn: Player 1</div>
+      </div>
+
+      <div class="board" id="board" aria-label="Tic-tac-toe board">
+        <!-- buttons injected -->
+      </div>
+
+      <div class="footerNote">
+        Tip: In single-player mode, the computer will move after you. In two-player mode, pass the device gently.
+      </div>
+    </section>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>
