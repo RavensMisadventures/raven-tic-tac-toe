@@ -1,0 +1,186 @@
+:root{
+  --bg:#0f1020;
+  --panel:#171a33;
+  --text:#f3f3ff;
+  --muted:#c9c9ff;
+  --line:rgba(255,255,255,.10);
+  --focus:#ffd36a;
+  --btn1:#2a2f6b;
+  --btn2:#222655;
+  --radius:18px;
+  --cell:110px;
+  --gap:12px;
+  --shadow: 0 16px 40px rgba(0,0,0,.35);
+  --font: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+}
+
+@media (min-width: 520px){ :root{ --cell: 130px; } }
+
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:var(--font);
+  color:var(--text);
+  background: radial-gradient(1200px 800px at 30% 10%, #1a1e44 0%, var(--bg) 55%, #0b0c18 100%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+}
+
+.app{
+  width:min(860px,100%);
+  background: rgba(23,26,51,.92);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+
+.top{
+  padding:18px 18px 10px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+h1{ margin:0 0 6px; font-size:1.35rem; }
+.sub{ margin:0; color:var(--muted); line-height:1.35; }
+
+.panel{ padding:16px 18px 18px; display:grid; gap:14px; }
+
+.row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.pill{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  padding:10px 12px;
+  border-radius:999px;
+  background: rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.08);
+}
+
+select{
+  background:transparent;
+  color:var(--text);
+  border:none;
+  outline:none;
+  font-size:1rem;
+  cursor:pointer;
+}
+option{ color:#0b0c18; }
+
+.btn{
+  background: linear-gradient(180deg, var(--btn1), var(--btn2));
+  color:var(--text);
+  border:1px solid rgba(255,255,255,.12);
+  padding:10px 14px;
+  border-radius:999px;
+  cursor:pointer;
+}
+.btn:focus-visible{ outline:3px solid var(--focus); outline-offset:2px; }
+
+.chooser{
+  width:100%;
+  padding:12px;
+  border-radius:var(--radius);
+  background: rgba(10,12,24,.55);
+  border:1px solid rgba(255,255,255,.08);
+}
+
+.chooserTitle{ font-weight:700; margin-bottom:8px; }
+.tokenRow{ display:flex; gap:10px; flex-wrap:wrap; }
+
+.tokenBtn{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 12px;
+  border-radius:16px;
+  border:2px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.05);
+  cursor:pointer;
+  color:var(--text);
+}
+.tokenBtn[aria-pressed="true"]{
+  border-color: rgba(255,211,106,.75);
+  box-shadow: 0 0 0 2px rgba(255,211,106,.18) inset;
+}
+.tokenBtn img{
+  width:44px; height:44px;
+  object-fit:contain;
+  border-radius:12px;
+  background: rgba(255,255,255,.04);
+}
+.tokenBtn:focus-visible{ outline:3px solid var(--focus); outline-offset:2px; }
+
+.tiny{ color:var(--muted); font-size:.95rem; margin-top:6px; }
+
+.status{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  padding:12px 14px;
+  border-radius:var(--radius);
+  background: rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.08);
+}
+.hint{ color:var(--muted); font-size:.95rem; margin-top:4px; }
+.turn{
+  white-space:nowrap;
+  align-self:flex-start;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.06);
+}
+
+.board{
+  display:grid;
+  grid-template-columns: repeat(3, var(--cell));
+  grid-template-rows: repeat(3, var(--cell));
+  gap: var(--gap);
+  justify-content:center;
+  padding:14px;
+  border-radius: calc(var(--radius) + 6px);
+  background: rgba(10,12,24,.55);
+  border:1px solid rgba(255,255,255,.08);
+}
+
+.cell{
+  width:var(--cell);
+  height:var(--cell);
+  border-radius:16px;
+  border:2px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.05);
+  cursor:pointer;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  touch-action: manipulation;
+}
+.cell:focus-visible{ outline:3px solid var(--focus); outline-offset:3px; }
+.cell[disabled]{ cursor:not-allowed; opacity:.92; }
+
+.tokenImg{
+  width:72px; height:72px;
+  object-fit:contain;
+  border-radius:16px;
+  background: rgba(255,255,255,.03);
+}
+
+.winGlow{
+  box-shadow: 0 0 0 3px rgba(125,255,178,.35) inset;
+}
+
+.footerNote{
+  color: var(--muted);
+  font-size: .95rem;
+  text-align:center;
+}
