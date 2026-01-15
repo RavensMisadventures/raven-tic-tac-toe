@@ -7,97 +7,95 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <main class="app">
+<main class="app">
 
-    <!-- TOP BAR -->
-    <header class="topbar">
-      <div class="brand">
-        <div class="brandText">
-          <h1 class="title">Raven’s Cozy Quest</h1>
-          <p class="subtitle">Flip a card to place your cozy symbol.</p>
-        </div>
-        <img src="assets/raven.png" alt="Raven" class="ravenHero" />
+<header class="topbar">
+  <div class="brand">
+    <div class="brandText">
+      <h1 class="title">Raven’s Cozy Quest</h1>
+      <p class="subtitle">Flip a card to place your cozy symbol.</p>
+    </div>
+    <img src="assets/raven.png" alt="Raven" class="ravenHero" />
+  </div>
+
+  <div class="topControls">
+    <button id="btnHome" class="btn ghost">🏠 Home</button>
+    <button id="btnReset" class="btn">🔄 Reset</button>
+
+    <label class="toggle">
+      <input id="toggleSound" type="checkbox" />
+      <span>🔊 Sound</span>
+    </label>
+
+    <label class="toggle">
+      <input id="toggleHaptics" type="checkbox" />
+      <span>📳 Vibrate</span>
+    </label>
+  </div>
+</header>
+
+<section id="screenHome" class="panel screen">
+  <div class="cardPanel">
+    <h2 class="panelTitle">Choose your cozy game</h2>
+
+    <div class="grid2">
+      <div class="field">
+        <label class="label">Mode</label>
+        <select id="modeSelect" class="select">
+          <option value="solo">Single-player vs Raven</option>
+          <option value="two">Two players</option>
+        </select>
       </div>
 
-      <div class="topControls">
-        <button id="btnHome" class="btn ghost">🏠 Home</button>
-        <button id="btnReset" class="btn">🔄 Reset</button>
-
-        <label class="toggle">
-          <input id="toggleSound" type="checkbox" />
-          <span>🔊 Sound</span>
-        </label>
-
-        <label class="toggle">
-          <input id="toggleHaptics" type="checkbox" />
-          <span>📳 Vibrate</span>
-        </label>
+      <div class="field">
+        <label class="label">Difficulty</label>
+        <select id="difficultySelect" class="select">
+          <option value="play">Play</option>
+          <option value="learn">Learn</option>
+          <option value="win">Win</option>
+        </select>
       </div>
-    </header>
 
-    <!-- HOME SCREEN -->
-    <section id="screenHome" class="panel screen">
-      <div class="cardPanel">
-        <h2 class="panelTitle">Choose your cozy game</h2>
-
-        <div class="grid2">
-          <div class="field">
-            <label class="label">Mode</label>
-            <select id="modeSelect" class="select">
-              <option value="solo">Single-player vs Raven</option>
-              <option value="two">Two players</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label class="label">Difficulty</label>
-            <select id="difficultySelect" class="select">
-              <option value="play">Play</option>
-              <option value="learn">Learn</option>
-              <option value="win">Win</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label class="label">Level look</label>
-            <select id="levelSelect" class="select">
-              <option value="1">Level 1</option>
-              <option value="2">Level 2</option>
-              <option value="3">Level 3</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label class="label">Who goes first?</label>
-            <div class="row">
-              <button id="firstFeather" class="pill">🪶 Feather first</button>
-              <button id="firstCookie" class="pill">🍪 Cookie first</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="ctaRow">
-          <button id="btnStart" class="btn primary">Let’s Play</button>
+      <div class="field">
+        <label class="label">Who goes first?</label>
+        <div class="row">
+          <button id="firstFeather" class="pill">🪶 Feather first</button>
+          <button id="firstCookie" class="pill">🍪 Cookie first</button>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- GAME SCREEN -->
-    <section id="screenGame" class="panel screen hidden">
-      <div class="statusWrap">
-        <div id="status" class="status" aria-live="polite"></div>
-        <div id="srAnnounce" class="sr-only" aria-live="assertive"></div>
+    <div class="ctaRow">
+      <button id="btnStart" class="btn primary">Let’s Play</button>
+    </div>
+  </div>
+</section>
+
+<section id="screenGame" class="panel screen hidden">
+  <div class="statusWrap">
+    <div id="status" class="status" aria-live="polite"></div>
+    <div id="srAnnounce" class="sr-only" aria-live="assertive"></div>
+  </div>
+
+  <div id="board" class="board" role="grid"></div>
+
+  <div class="bottomRow">
+    <button id="btnExit" class="btn ghost">← Exit to Home</button>
+  </div>
+
+  <div id="overlay" class="overlay hidden" role="dialog" aria-modal="true">
+    <div class="overlayCard">
+      <h3 id="overlayTitle">Great Job!</h3>
+      <p id="overlayMsg">Play again?</p>
+      <div class="overlayBtns">
+        <button id="btnOverlayYes" class="btn primary">Yes</button>
+        <button id="btnOverlayNo" class="btn ghost">No</button>
       </div>
+    </div>
+  </div>
+</section>
 
-      <div id="board" class="board" role="grid"></div>
-
-      <div class="bottomRow">
-        <button id="btnExit" class="btn ghost">← Exit to Home</button>
-      </div>
-    </section>
-
-  </main>
-
-  <script src="game.js"></script>
+</main>
+<script src="game.js"></script>
 </body>
 </html>
