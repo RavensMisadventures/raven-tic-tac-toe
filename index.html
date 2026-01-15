@@ -18,19 +18,16 @@
     <img src="assets/raven.png" alt="Raven" class="ravenHero" />
   </div>
 
-  <div class="topControls">
-    <button id="btnHome" class="btn ghost">🏠 Home</button>
-    <button id="btnReset" class="btn">🔄 Reset</button>
+  <div class="topControls" aria-label="Top controls">
+    <button id="btnHome" class="btn ghost" type="button">🏠 Home</button>
+    <button id="btnReset" class="btn" type="button">🔄 Reset</button>
 
-    <label class="toggle">
-      <input id="toggleSound" type="checkbox" />
-      <span>🔊 Sound</span>
-    </label>
-
-    <label class="toggle">
-      <input id="toggleHaptics" type="checkbox" />
-      <span>📳 Vibrate</span>
-    </label>
+    <button id="btnSound" class="btn toggleBtn" type="button" aria-pressed="true" aria-label="Toggle sound">
+      🔊 <span>Sound</span>
+    </button>
+    <button id="btnVibrate" class="btn toggleBtn" type="button" aria-pressed="true" aria-label="Toggle vibration">
+      📳 <span>Vibrate</span>
+    </button>
   </div>
 </header>
 
@@ -59,14 +56,14 @@
       <div class="field">
         <label class="label">Who goes first?</label>
         <div class="row">
-          <button id="firstFeather" class="pill">🪶 Feather first</button>
-          <button id="firstCookie" class="pill">🍪 Cookie first</button>
+          <button id="firstFeather" class="pill" type="button">🪶 Feather first</button>
+          <button id="firstCookie" class="pill" type="button">🍪 Cookie first</button>
         </div>
       </div>
     </div>
 
     <div class="ctaRow">
-      <button id="btnStart" class="btn primary">Let’s Play</button>
+      <button id="btnStart" class="btn primary" type="button">Let’s Play</button>
     </div>
   </div>
 </section>
@@ -77,19 +74,19 @@
     <div id="srAnnounce" class="sr-only" aria-live="assertive"></div>
   </div>
 
-  <div id="board" class="board" role="grid"></div>
+  <div id="board" class="board" role="grid" aria-label="Tic tac toe board"></div>
 
   <div class="bottomRow">
-    <button id="btnExit" class="btn ghost">← Exit to Home</button>
+    <button id="btnExit" class="btn ghost" type="button">← Exit to Home</button>
   </div>
 
-  <div id="overlay" class="overlay hidden" role="dialog" aria-modal="true">
+  <div id="overlay" class="overlay hidden" role="dialog" aria-modal="true" aria-labelledby="overlayTitle">
     <div class="overlayCard">
       <h3 id="overlayTitle">Great Job!</h3>
       <p id="overlayMsg">Play again?</p>
       <div class="overlayBtns">
-        <button id="btnOverlayYes" class="btn primary">Yes</button>
-        <button id="btnOverlayNo" class="btn ghost">No</button>
+        <button id="btnOverlayYes" class="btn primary" type="button">Yes</button>
+        <button id="btnOverlayNo" class="btn ghost" type="button">No</button>
       </div>
     </div>
   </div>
