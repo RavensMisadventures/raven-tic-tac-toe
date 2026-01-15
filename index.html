@@ -3,42 +3,104 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Raven’s Cozy Squares</title>
+  <title>Raven’s Cozy Quest — Tic-Tac-Toe</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <main class="app">
+    <header class="top">
+      <div class="brand">
+        <h1 class="title">Raven’s Cozy Quest</h1>
+        <p class="subtitle">Flip a card to place your cozy symbol.</p>
+      </div>
 
-<main id="start-screen" class="start-screen">
-  <h1>Raven’s Cozy Squares</h1>
+      <div class="topBtns">
+        <button id="btnHome" class="btn ghost" type="button">🏠 Home</button>
+        <button id="btnReset" class="btn" type="button">Reset</button>
 
-  <div class="start-heroes">
-    <img src="assets/characters/raven.png" alt="Raven" class="start-char" />
-  </div>
+        <label class="toggle">
+          <input id="toggleSound" type="checkbox" />
+          <span>Sound</span>
+        </label>
 
-  <div class="start-controls">
-    <label class="control">
-      <span>Who goes first?</span>
-      <select id="firstPlayerSelect">
-        <option value="player">You</option>
-        <option value="raven">Raven</option>
-        <option value="random">Random</option>
-      </select>
-    </label>
+        <label class="toggle">
+          <input id="toggleHaptics" type="checkbox" />
+          <span>Haptics</span>
+        </label>
+      </div>
+    </header>
 
-    <div class="icon-toggles">
-      <button id="soundToggle" class="icon-toggle" type="button">🔊 Sound</button>
-      <button id="buzzToggle" class="icon-toggle" type="button">📳 Buzz</button>
-    </div>
+    <!-- HOME SCREEN -->
+    <section id="screenHome" class="panel screen">
+      <div class="cardPanel">
+        <h2 class="panelTitle">Choose your cozy game</h2>
 
-    <button id="startBtn" class="primary-btn">Let’s Play</button>
-  </div>
-</main>
+        <div class="grid2">
+          <div class="field">
+            <label for="modeSelect" class="label">Mode</label>
+            <select id="modeSelect" class="select">
+              <option value="solo">Single-player vs Raven</option>
+              <option value="two">Two players</option>
+            </select>
+          </div>
 
-<section id="game-screen" class="hidden">
-  <button id="homeBtn">⬅ Home</button>
-  <div id="board" class="board"></div>
-</section>
+          <div class="field">
+            <label for="difficultySelect" class="label">Difficulty</label>
+            <select id="difficultySelect" class="select">
+              <option value="play">Play (silly + random)</option>
+              <option value="learn">Learn (gentle helper)</option>
+              <option value="win">Win (tries its best)</option>
+            </select>
+          </div>
 
-<script type="module" src="game.js"></script>
+          <div class="field">
+            <label for="levelSelect" class="label">Level look</label>
+            <select id="levelSelect" class="select">
+              <option value="1">Level 1 — Classic seal</option>
+              <option value="2">Level 2 — Alternate seal</option>
+              <option value="3">Level 3 — Alternate seal</option>
+            </select>
+            <p class="smallHint">Tip: Add <code>assets/seal-level2.png</code> etc. to change the card front per level.</p>
+          </div>
+
+          <div class="field">
+            <label class="label">Who goes first?</label>
+            <div class="row">
+              <button id="firstFeather" class="pill" type="button">Feather first</button>
+              <button id="firstCookie" class="pill" type="button">Cookie first</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="ctaRow">
+          <button id="btnStart" class="btn primary" type="button">Let’s Play</button>
+        </div>
+
+        <p class="note">Sensory-safe: no timers, no pressure. You can always reset or go back home.</p>
+      </div>
+    </section>
+
+    <!-- GAME SCREEN -->
+    <section id="screenGame" class="panel screen hidden" aria-label="Game screen">
+      <div class="statusWrap">
+        <div id="status" class="status" aria-live="polite">Tap a card to begin.</div>
+
+        <!-- Screen-reader priority announcements -->
+        <div id="srAnnounce" class="sr-only" aria-live="assertive"></div>
+      </div>
+
+      <div class="board" id="board" role="grid" aria-label="Tic tac toe board"></div>
+
+      <div class="hint" id="hint">
+        Cards flip to reveal your symbol — the seal stays on the front only.
+      </div>
+
+      <div class="bottomRow">
+        <button id="btnExit" class="btn ghost" type="button">← Exit to Home</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="game.js"></script>
 </body>
 </html>
