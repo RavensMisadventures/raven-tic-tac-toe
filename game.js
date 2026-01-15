@@ -1,4 +1,4 @@
-// js/game.js
+// game.js
 const startScreen = document.getElementById("start-screen");
 const gameScreen = document.getElementById("game-screen");
 const startBtn = document.getElementById("startBtn");
